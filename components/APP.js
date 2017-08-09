@@ -5,34 +5,25 @@ import { Motion, StaggeredMotion, spring } from 'react-motion';
 import range from 'lodash.range';
 
 // Components
-
 //Constants
-
 // Diameter of the main button in pixels
 const MAIN_BUTTON_DIAM = 90;
 const CHILD_BUTTON_DIAM = 48;
-// The number of child buttons that fly out from the main button
-const NUM_CHILDREN = 7;
-// Hard code the position values of the mainButton
+
+const NUM_CHILDREN = 6;
+//position values of the mainButton
 const M_X = 490;
 const M_Y = 450;
 
-//should be between 0 and 0.5 (its maximum value is difference between scale in finalChildButtonStyles a
-// nd initialChildButtonStyles)
 const OFFSET = 0.05;
-
 const SPRING_CONFIG = { stiffness: 400, damping: 28 };
-
 // How far away from the main button does the child buttons go
 const FLY_OUT_RADIUS = 130,
   SEPARATION_ANGLE = 40, //degrees
   FAN_ANGLE = (NUM_CHILDREN - 1) * SEPARATION_ANGLE, //degrees
   BASE_ANGLE = ((180 - FAN_ANGLE) / 2); // degrees
 
-// Names of icons for each button retreived from fontAwesome, we'll add a little extra just in case
-// the NUM_CHILDREN is changed to a bigger value
-let childButtonIcons = ['!', 's', 'k', 'n', 'a', 'h', 'T'];
-
+let childButtonIcons = ['s', 'k', 'n', 'a', 'h', 'T'];
 
 // Utility functions
 
@@ -161,7 +152,6 @@ class APP extends React.Component {
       prevFrameStyles = isOpen ? prevFrameStyles : prevFrameStyles.reverse();
 
       let nextFrameTargetStyles = prevFrameStyles.map((buttonStyleInPreviousFrame, i) => {
-        //animation always starts from first button
         if (i === 0) {
           return targetButtonStyles[i];
         }
@@ -183,29 +173,29 @@ class APP extends React.Component {
 
     return (
       <StaggeredMotion
-        defaultStyles={targetButtonStylesInit}
+      defaultStyles={targetButtonStylesInit}
         styles={calculateStylesForNextFrame}>
         {interpolatedStyles =>
           <div>
           {interpolatedStyles.map(({height, left, rotate, scale, top, width}, index) =>
-          <div
-          className="child-button"
-          key={index}
-          style={{
-            left,
-            height,
-            top,
-            transform: `rotate(${rotate}deg) scale(${scale})`,
-            width
-          }}
-          >
-          <i className={"fa fa-stack-text" + childButtonIcons[index] + " fa-lg"}></i>
-          <p class="fa-stack-1x fa-stack-text fa-inverse">{childButtonIcons[index]}</p>
-          </div>
-        )}
-        </div>
-      }
-      </StaggeredMotion>
+            <div
+              className="child-button"
+                key={index}
+                style={{
+                  left,
+                  height,
+                  top,
+                  transform: `rotate(${rotate}deg) scale(${scale})`,
+                  width
+                }}
+                >
+              <p className={"fa-stack-text fa-lg"}>{childButtonIcons[index]}</p>
+                <p className="fa fa-stack-1x fa-stack-text"></p>
+                </div>
+            )}
+            </div>
+        }
+        </StaggeredMotion>
     );
   }
 
@@ -217,17 +207,17 @@ class APP extends React.Component {
       <div>
       {this.renderChildButtons()}
       <Motion style={mainButtonRotation}>
-      {({rotate}) =>
-      <div
-      className="main-button"
-      style={{...this.mainButtonStyles(), transform: `rotate(${rotate}deg)`}}
-      onClick={this.toggleMenu}>
-      {/*Using fa-close instead of fa-plus because fa-plus doesn't center properly*/}
-      <i className="fa fa-close fa-3x"/>
-      </div>
-    }
-    </Motion>
-    </div>
+        {({rotate}) =>
+          <div
+            className="main-button"
+            style={{...this.mainButtonStyles(), transform: `rotate(${rotate}deg)`}}
+            onClick={this.toggleMenu}>
+            {/*Not using fa-close or fa-plus because not centering properly*/}
+            <p className="fa-3x">N</p>
+            </div>
+          }
+          </Motion>
+          </div>
     );
   }
 };

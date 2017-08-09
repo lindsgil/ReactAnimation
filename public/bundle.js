@@ -22226,7 +22226,7 @@
 	var MAIN_BUTTON_DIAM = 90;
 	var CHILD_BUTTON_DIAM = 48;
 	// The number of child buttons that fly out from the main button
-	var NUM_CHILDREN = 7;
+	var NUM_CHILDREN = 6;
 	// Hard code the position values of the mainButton
 	var M_X = 490;
 	var M_Y = 450;
@@ -22247,7 +22247,7 @@
 
 	// Names of icons for each button retreived from fontAwesome, we'll add a little extra just in case
 	// the NUM_CHILDREN is changed to a bigger value
-	var childButtonIcons = ['!', 's', 'k', 'n', 'a', 'h', 'T'];
+	var childButtonIcons = ['s', 'k', 'n', 'a', 'h', 'T'];
 
 	// Utility functions
 
@@ -22403,7 +22403,6 @@
 	        prevFrameStyles = isOpen ? prevFrameStyles : prevFrameStyles.reverse();
 
 	        var nextFrameTargetStyles = prevFrameStyles.map(function (buttonStyleInPreviousFrame, i) {
-	          //animation always starts from first button
 	          if (i === 0) {
 	            return targetButtonStyles[i];
 	          }
@@ -22452,12 +22451,12 @@
 	                    width: width
 	                  }
 	                },
-	                _react2.default.createElement('i', { className: "fa fa-stack-text" + childButtonIcons[index] + " fa-lg" }),
 	                _react2.default.createElement(
 	                  'p',
-	                  { 'class': 'fa-stack-1x fa-stack-text fa-inverse' },
+	                  { className: "fa-stack-text fa-lg" },
 	                  childButtonIcons[index]
-	                )
+	                ),
+	                _react2.default.createElement('p', { className: 'fa fa-stack-1x fa-stack-text' })
 	              );
 	            })
 	          );
@@ -22487,7 +22486,11 @@
 	                className: 'main-button',
 	                style: _extends({}, _this3.mainButtonStyles(), { transform: 'rotate(' + rotate + 'deg)' }),
 	                onClick: _this3.toggleMenu },
-	              _react2.default.createElement('i', { className: 'fa fa-close fa-3x' })
+	              _react2.default.createElement(
+	                'p',
+	                { className: 'fa-3x' },
+	                'N'
+	              )
 	            );
 	          }
 	        )
