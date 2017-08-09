@@ -12,7 +12,7 @@ html, body {
   width: 90px;
   height: 90px;
   border-radius: 100%;
-  background-color: #68AEF0;
+  background-color: #333;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -20,6 +20,7 @@ html, body {
   color: #ffffff;
   font-weight: lighter;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  font-family: 'Open Sans', sans-serif;
 }
 
 .child-button {
@@ -31,6 +32,7 @@ html, body {
   height: 50px;
   border-radius: 100%;
   background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 3px;
-  color: #8898A5;
+  box-shadow: rgba(51, 51, 51, 0.8) 0px 1px 3px;
+  color: #333;
+  font-family: 'Open Sans', sans-serif;
 }
