@@ -10,7 +10,7 @@ import range from 'lodash.range';
 const MAIN_BUTTON_DIAM = 90;
 const CHILD_BUTTON_DIAM = 48;
 
-const NUM_CHILDREN = 6;
+const NUM_CHILDREN = 7;
 //position values of the mainButton
 const M_X = 490;
 const M_Y = 450;
@@ -23,7 +23,7 @@ const FLY_OUT_RADIUS = 130,
   FAN_ANGLE = (NUM_CHILDREN - 1) * SEPARATION_ANGLE, //degrees
   BASE_ANGLE = ((180 - FAN_ANGLE) / 2); // degrees
 
-let childButtonIcons = ['s', 'k', 'n', 'a', 'h', 'T'];
+let childButtonIcons = ['!', 's', 'k', 'n', 'a', 'h', 'T'];
 
 // Utility functions
 

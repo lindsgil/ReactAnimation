@@ -22219,24 +22219,18 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	// Components
-
 	//Constants
-
 	// Diameter of the main button in pixels
 	var MAIN_BUTTON_DIAM = 90;
 	var CHILD_BUTTON_DIAM = 48;
-	// The number of child buttons that fly out from the main button
-	var NUM_CHILDREN = 6;
-	// Hard code the position values of the mainButton
+
+	var NUM_CHILDREN = 7;
+	//position values of the mainButton
 	var M_X = 490;
 	var M_Y = 450;
 
-	//should be between 0 and 0.5 (its maximum value is difference between scale in finalChildButtonStyles a
-	// nd initialChildButtonStyles)
 	var OFFSET = 0.05;
-
 	var SPRING_CONFIG = { stiffness: 400, damping: 28 };
-
 	// How far away from the main button does the child buttons go
 	var FLY_OUT_RADIUS = 130,
 	    SEPARATION_ANGLE = 40,
@@ -22245,9 +22239,7 @@
 	    //degrees
 	BASE_ANGLE = (180 - FAN_ANGLE) / 2; // degrees
 
-	// Names of icons for each button retreived from fontAwesome, we'll add a little extra just in case
-	// the NUM_CHILDREN is changed to a bigger value
-	var childButtonIcons = ['s', 'k', 'n', 'a', 'h', 'T'];
+	var childButtonIcons = ['!', 's', 'k', 'n', 'a', 'h', 'T'];
 
 	// Utility functions
 
